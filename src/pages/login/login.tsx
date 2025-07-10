@@ -22,19 +22,11 @@ export const Login: FC = () => {
     }
 
     const loginData = { email, password };
-
-    dispatch(loginUser(loginData))
-      .then(() => {})
-      .catch((error) => {
-        console.error(
-          'Ошибка авторизации:',
-          error.message || 'Неизвестная ошибка'
-        );
-      });
+    dispatch(loginUser(loginData));
   };
 
   if (isAuthenticated) {
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/profile';
     return <Navigate to={from} replace />;
   }
 

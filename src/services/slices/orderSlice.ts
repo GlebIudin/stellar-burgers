@@ -11,6 +11,7 @@ export interface OrderState {
   loading: boolean;
   error: string | null;
   orderModalOpen: boolean;
+  success: boolean;
 }
 
 const initialState: OrderState = {
@@ -20,7 +21,8 @@ const initialState: OrderState = {
   orderNumber: null,
   loading: false,
   error: null,
-  orderModalOpen: false
+  orderModalOpen: false,
+  success: false
 };
 
 const asyncHandlers = {
@@ -134,3 +136,5 @@ const orderSlice = createSlice({
 export const { openOrderModal, closeOrderModal, setOrders } =
   orderSlice.actions;
 export default orderSlice.reducer;
+export const selectOrderNumber = (state: RootState) =>
+  state.order.order?.number;
