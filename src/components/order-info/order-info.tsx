@@ -19,7 +19,6 @@ export const OrderInfo: FC = () => {
     dispatch(fetchOrderByNumber(parseInt(number as string)));
   }, [dispatch, number]);
 
-  /* Готовим данные для отображения */
   const orderInfo = useMemo(() => {
     if (!orderData || !ingredients.length) return null;
 

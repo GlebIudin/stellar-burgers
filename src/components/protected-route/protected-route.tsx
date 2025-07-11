@@ -30,7 +30,13 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
     }
 
     if (!isAuthenticated && !refreshTokenExists) {
-      return <Navigate to='/login' state={{ from: pathname }} replace />;
+      return (
+        <Navigate
+          to='/login'
+          state={{ from: { pathname: '/profile' } }}
+          replace
+        />
+      );
     }
 
     if (refreshTokenExists && isLoading && !isAuthenticated) {
